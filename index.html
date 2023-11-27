@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Csengetési rend</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="bell.png">
+</head>
+<body class="gradient">
+
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">csuszydev.hu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" target="_blank" href="./orarend.pdf">Órarend</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Játékok
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="./szinozon">Színözön</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+    <main class="keret">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  Csengetési rend
+                </button>
+                  
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                    <table class="">
+                        <thead>
+                            <tr>
+                                <th scope="row" colspan="3" id="cim"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="csngetesrend">
+                            <tr class="">
+                                <th scope="row" class="">#</th>
+                                <th>Kezés - Vége</th>
+                                <th>Szünet hossza</th>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th id="clock" colspan="3"></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+              </div>
+            </div>
+
+            <!--
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                  //CIM
+                </button>
+              </h2>s
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  //Szöveg
+                </div>
+              </div>
+            </div>
+          -->
+
+
+          <a class="weatherwidget-io" href="https://forecast7.com/hu/47d5321d63/debrecen/" data-label_1="DEBRECEN" data-label_2="WEATHER" data-icons="Climacons Animated" data-days="3" data-theme="dark" data-basecolor="#161616" data-suncolor="#dfd62c" >DEBRECEN WEATHER</a>
+          <script>
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+          </script>
+          <div class="checkbox-wrapper-2">
+            <input type="checkbox" name="kesesmod" class="sc-gJwTLC ikxBAC" id="kesesmod">
+            <label for="kesesmod" style="color: white;">Késés mód</label>
+          </div>
+          <div id="szunet" class="mt-5 font-monospace"></div>
+        </div>
+        
+    </main>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9820588681339749"
+     crossorigin="anonymous"></script>
+    <script src='main.js'></script>
+</body>
+</html>

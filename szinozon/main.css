@@ -1,0 +1,81 @@
+.fekete, .feher, .piros, .lila, .narancs, .citrom, .zold, .kek{
+    width: 50px;
+    height: 50px;
+    border: 1px black solid;
+    border-radius: 50px;
+    box-shadow: black 1px 1px 5px;
+}
+h3{
+    text-align: center;
+}
+.szinek{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px;
+    align-items: center;
+}
+.jatek{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.sor{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.fekete:hover, .feher:hover, .piros:hover, .lila:hover, .narancs:hover, .citrom:hover, .zold:hover, .kek:hover{
+    box-shadow:inset wheat 1px 1px 10px;
+}
+
+.fekete{
+    background-color: black;
+}
+.feher{
+    background-color: white;
+}
+.piros{
+    background-color: red;
+}
+.lila{
+    background-color: purple;
+}
+.narancs{
+    background-color: orange;
+}
+.citrom{
+    background-color: yellow;
+}
+.zold{
+    background-color: green;
+}
+.kek{
+    background-color: blue;
+}
+
+.hide{
+    display: none;
+}
+
+
+.eredmeny,.sor{
+    display: flex;
+    gap: 15px;
+}
+.eredmeny{
+    margin-right: 90px;
+}
+.kisikon{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 5px;
+}
+.kisikon button{
+    width: 15px;
+    height: 15px;
+}
