@@ -1,5 +1,5 @@
-//Alert 5 perc elott
-function alert(){
+//szunetertesito 5 perc elott
+function szunetertesito(){
     let timerInterval
     Swal.fire({
     title: 'Szünet lesz 5 perc múlva!',
@@ -85,9 +85,11 @@ function  jelenlegiora(num){
         row.style.fontWeight = "";
         row.style.fontSize = "";
     });
-    rows[num].style.backgroundColor = "#9C0606";
-    rows[num].style.fontWeight = 700;
-    rows[num].style.fontSize = "1.2rem";
+    if (num != 'remove') {
+        rows[num].style.backgroundColor = "#9C0606";
+        rows[num].style.fontWeight = 700;
+        rows[num].style.fontSize = "1.2rem";
+    }
 }
 
 
@@ -103,7 +105,6 @@ const kicsengetes = [
     new Date('2023-01-08T14:45:00'),//7
     new Date('2023-01-08T15:35:00'),//8
 ];
-
 
 
 //Kiiratas    kesesmod
@@ -127,7 +128,7 @@ function szunetwrite(type){
                 document.querySelector('#szunet').innerHTML = `Késés ${45 - szunetperc} perc`;
             }
             if (5 == szunetperc && seconds == 1) {
-                alert();
+                szunetertesito();
             }
         } else {
             if (szunetperc == 1) {
@@ -136,7 +137,7 @@ function szunetwrite(type){
                 document.querySelector('#szunet').innerHTML = `Szünet ${szunetperc} perc múlva`;
             }
             if (5 == szunetperc && seconds == 1) {
-                alert();
+                szunetertesito();
             }
         }
 
@@ -277,9 +278,6 @@ function szunet(){
 
 
 
-
-
-
     else{
         document.querySelector('#szunet').innerHTML = 'Mára vége!';
         jelenlegiora("remove");
@@ -300,3 +298,73 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
+
+
+
+
+document.getElementById('zenmod').addEventListener("change", function (e) {
+    let main = document.getElementById("main");
+    let zenmod = document.getElementById('zenmod').checked;
+    if (zenmod == true) {
+        main.style.visibility = "hidden";
+    } else {
+        main.style.visibility = "visible";
+    }
+});
+
+
+
+
+
+
+
+
+
+const messages = [
+    "Gratulálok! Találtál egy tojást!",
+    "Szuper! Egy újabb tojás!",
+    "Ügyes vagy! Itt egy tojás!",
+    // További üzenetek hozzáadhatók a listához
+];
+
+const specialMessages = [
+    "WOW! Arany tojást találtál! Különleges üzenet vár rád!",
+    // További különleges üzenetek hozzáadhatók a listához
+];
+
+function showRandomMessage(messagesArray) {
+    const randomIndex = Math.floor(Math.random() * messagesArray.length);
+    const randomMessage = messagesArray[randomIndex];
+    alert(randomMessage);
+}
+
+function removeEgg(egg) {
+    egg.remove();
+}
+
+function spawnEgg() {
+    const existingEggs = document.querySelectorAll('.egg, .special-egg');
+    if (existingEggs.length === 0) {
+        const isSpecialEgg = Math.random() < 0.001; // 0.1% esély speciális tojásra (1000:1 arány)
+        console.log(isSpecialEgg);
+        const messageArray = isSpecialEgg ? specialMessages : messages;
+
+        const egg = document.createElement("div");
+        egg.className = isSpecialEgg ? "special-egg" : "egg";
+        egg.innerHTML = isSpecialEgg ? "🥚" : "🥚";
+        egg.style.left = `${Math.random() * window.innerWidth}px`;
+        egg.style.top = `${Math.random() * window.innerHeight}px`;
+        egg.onclick = function () {
+            showRandomMessage(messageArray);
+            removeEgg(egg);
+        };
+
+        document.body.appendChild(egg);
+    }
+}
+
+function startEggSpawn() {
+    setInterval(spawnEgg, (Math.random() * 900000) + 900000); // 15-30 perc (900000-1800000 milliszekundum)
+}
+
+startEggSpawn();

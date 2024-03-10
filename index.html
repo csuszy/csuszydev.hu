@@ -13,7 +13,7 @@
     <link rel="icon" type="image/x-icon" href="bell.png">
 </head>
 <body class="gradient">
-
+  <canvas id="canvas"></canvas>
     <nav class="navbar navbar-dark bg-dark">
       <div class="">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
@@ -27,7 +27,7 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" target="_blank" href="./orarend.pdf">Órarend</a>
+                <a class="nav-link" aria-current="page" target="_blank" href="./214.2.pdf">Órarend</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,6 +37,27 @@
                   <li><a class="dropdown-item" href="./szinozon">Színözön</a></li>
                 </ul>
               </li>
+              <li class="nav-item">
+                <div class="checkbox-wrapper-2">
+                  <input type="checkbox" name="kesesmod" class="sc-gJwTLC ikxBAC" id="kesesmod">
+                  <label for="kesesmod" style="color: white;">Késés mód</label>
+                </div>
+              </li>
+              <li class="nav-item mt-4">
+                <div class="checkbox-wrapper-2">
+                  <input type="checkbox" name="zenmod" class="sc-gJwTLC ikxBAC" id="zenmod">
+                  <label for="zenmod" style="color: white;">Zen mode</label>
+                </div>
+              </li>
+
+              <!--
+              <li class="nav-item mt-4">
+                <div class="checkbox-wrapper-2">
+                  <input type="checkbox" name="ho" class="sc-gJwTLC ikxBAC" id="hoswitch">
+                  <label for="ho" style="color: white;">Hó</label>
+                </div>
+              </li>
+              -->
             </ul>
           </div>
         </div>
@@ -46,16 +67,16 @@
 
 
 
-    <main class="keret">
-        <div class="accordion" id="accordionPanelsStayOpenExample">
+    <main class="keret" id="main">
+        <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   Csengetési rend
                 </button>
                   
               </h2>
-              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <table class="">
                         <thead>
@@ -66,13 +87,16 @@
                         <tbody id="csngetesrend">
                             <tr class="">
                                 <th scope="row" class="">#</th>
-                                <th>Kezés - Vége</th>
+                                <th>Kezdés - Vége</th>
                                 <th>Szünet hossza</th>
                             </tr>
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th id="clock" colspan="3"></th>
+                                <th class="pt-2" id="clock" colspan="3"></th>
+                            </tr>
+                            <tr>
+                              <th class="p-1"></th>
                             </tr>
                         </tfoot>
                     </table>
@@ -80,36 +104,28 @@
               </div>
             </div>
 
-            <!--
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                  //CIM
+                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Órarend
                 </button>
-              </h2>s
-              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  //Szöveg
+                  <object data="./214.2.pdf" type="application/pdf" style="min-height: 500px; width:100%">
+                    <p>Az órarend nem jeleníthető meg! <a href="./214.2.pdf">Megnyitás itt</a></p>
+                  </object>
                 </div>
               </div>
             </div>
-          -->
 
 
-          <a class="weatherwidget-io" href="https://forecast7.com/hu/47d5321d63/debrecen/" data-label_1="DEBRECEN" data-label_2="WEATHER" data-icons="Climacons Animated" data-days="3" data-theme="dark" data-basecolor="#161616" data-suncolor="#dfd62c" >DEBRECEN WEATHER</a>
-          <script>
-          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-          </script>
-          <div class="checkbox-wrapper-2">
-            <input type="checkbox" name="kesesmod" class="sc-gJwTLC ikxBAC" id="kesesmod">
-            <label for="kesesmod" style="color: white;">Késés mód</label>
-          </div>
+          
           <div id="szunet" class="mt-5 font-monospace"></div>
         </div>
         
     </main>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9820588681339749"
-     crossorigin="anonymous"></script>
     <script src='main.js'></script>
+    <script src='snowfall.js'></script>
 </body>
 </html>
