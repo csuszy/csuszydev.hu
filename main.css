@@ -187,3 +187,18 @@ nav{
 .checkbox-wrapper-2 .ikxBAC:checked:hover {
   background-color: #535db3;
 }
+
+.ver{
+  display: flex;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
+.version{
+  display: flex;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  color: #6e6e6e;
+  text-decoration: none;
+}
