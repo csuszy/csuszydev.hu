@@ -3,10 +3,7 @@
     padding: 0;
 }
 body{
-    min-height: 100dvh;
     background-color: #111;
-    display: grid;
-    place-items: center;
     background-image: url('./winterbg.png');
     background-image: url('./tavasz2.jpg');
     backdrop-filter: blur(6px);
@@ -15,11 +12,13 @@ body{
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
 }
 
 body {
   margin: 0;
-  overflow: hidden;
 }
 
 .egg,.special-egg {
@@ -54,6 +53,7 @@ canvas {
 .accordion{
     min-width: 100%;
     border-radius: 5px;
+    z-index: 50;
 }
 .accordion-button{
     color: #fff;
@@ -89,7 +89,7 @@ tbody>tr:nth-child(even) {
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    margin-top: -10px;
+    margin-bottom: 25px;
 }
 #clock{
     color: aliceblue;
@@ -190,15 +190,15 @@ nav{
 
 .ver{
   display: flex;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
+  width: fit-content;
+  height: fit-content;
+  z-index: 100;
 }
 .version{
   display: flex;
   position: fixed;
   bottom: 0px;
-  left: 0px;
+  left: 8px;
   color: #6e6e6e;
   text-decoration: none;
 }

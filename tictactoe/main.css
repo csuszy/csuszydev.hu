@@ -1,0 +1,109 @@
+
+
+html, body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #212121;
+    color: #fafafa;
+    font-family: "Rubik Scribble", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.jatekter{
+    max-width: 800px;
+    width: 100%;
+    max-height: 800px;
+    height: 100%;
+
+    border: 0px solid #424242;
+    box-shadow: inset 0px 0px 20px 2px #303030;
+    border-radius: 12px;
+    margin: 4px;
+
+    display: grid;
+    place-content: center;
+    gap: 3px;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(3, 33%);
+}
+.kocka{
+    background-color: transparent;
+    border: none;
+    color: #fafafa;
+
+    font-family: "Rubik Scribble", system-ui;
+    font-weight: 500;
+    font-style: normal;
+
+    box-shadow: inset 0px 0px 1px 1px #303030;
+    border-radius: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 150px;
+
+    transition: .15s all ease-in-out;
+
+    
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.kocka:hover{
+    background-color: #252525;
+    box-shadow: inset 0px 0px 12px 1px #424242;
+}
+
+#CurrSymbol{
+    font-family: "Rubik Scribble", system-ui;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 80px;
+
+    box-shadow: inset 0px 0px 1px 1px #303030;
+    border-radius: 12px;
+    padding: 20PX;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .jatekter{
+        max-width: 600px;
+        max-height: 600px;
+    }
+    .kocka{
+        font-size: 100px;
+    }
+    main{
+        flex-direction: column;
+    }
+    .info{
+        display: flex;
+        flex-direction: row;
+    }
+}
+@media only screen and (max-width: 300px) {
+    .kocka{
+        font-size: 70px;
+    }
+}

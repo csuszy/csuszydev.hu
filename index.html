@@ -11,9 +11,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="bell.png">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9820588681339749"
+     crossorigin="anonymous"></script>
 </head>
 <body class="gradient">
-  <canvas id="canvas"></canvas>
+      <!--Hóesés keretje => <canvas id="canvas"></canvas>  -->  
     <nav class="navbar navbar-dark bg-dark">
       <div class="">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
@@ -35,6 +38,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark">
                   <li><a class="dropdown-item" href="./szinozon">Színözön</a></li>
+                  <li><a class="dropdown-item" href="./tictactoe/">TicTacToe</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -112,8 +116,8 @@
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <object data="./214.2.pdf" type="application/pdf" style="min-height: 500px; width:100%">
-                    <p>Az órarend nem jeleníthető meg! <a href="./214.2.pdf">Megnyitás itt</a></p>
+                  <object data="./orarend.pdf" type="application/pdf" style="height: fit-content; width:100%">
+                    <p style="color: #f1f1f1;">Az órarend nem jeleníthető meg! <a href="./214.2.pdf">Megnyitás itt</a></p>
                   </object>
                 </div>
               </div>
@@ -123,10 +127,10 @@
           
           <div id="szunet" class="mt-5 font-monospace"></div>
         </div>
-    </main>
         <p class="ver"><a class="version" href="./relasenote/">Version: 2.03</a></p>
+    </main>
     <script src='main.js'></script>
-    <script src='snowfall.js'></script>
-    <!--<script src="easteregg.js"></script>-->
+    <!--  <script src='snowfall.js'></script>  -->  
+    <script src="easteregg.js"></script>
 </body>
 </html>

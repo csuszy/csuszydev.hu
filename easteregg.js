@@ -17,6 +17,7 @@ function showRandomMessage(messagesArray) {
     alert(randomMessage);
 }
 
+
 function removeEgg(egg) {
     egg.remove();
 }
@@ -43,7 +44,7 @@ function spawnEgg() {
 }
 
 function startEggSpawn() {
-    setInterval(spawnEgg, (Math.random() * 900000) + 900000); // 15-30 perc (900000-1800000 milliszekundum)
+    setInterval(spawnEgg, (Math.random() * 600000) + 900000); // 10-30 perc (900000-1800000 milliszekundum)
 }
 
 startEggSpawn();
