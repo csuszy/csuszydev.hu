@@ -17,7 +17,11 @@ function AddSymbol() {
             if (click <= 9) {
                 DissbleButton("tiltas")
             }
+            if (click <= 9) {
+                DissbleButton("tiltas")
+            }
             Updatesymbol();
+            BotPlace();
             BotPlace();
         } else if (CurrentSymbol == "O"){
             button.innerText = "O";
@@ -102,8 +106,10 @@ function CheckWin() {
         if (k1 == "X") {
             ShowWinner("X");
             return "X";
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
             return "O";
         }
     }
@@ -111,8 +117,10 @@ function CheckWin() {
         if (k4 == "X") {
             ShowWinner("X");
             return "X";
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
             return "O";
         }
     }
@@ -120,8 +128,10 @@ function CheckWin() {
         if (k7 == "X") {
             ShowWinner("X");
             return "X";
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
             return "O";
         }
     }
@@ -132,8 +142,10 @@ function CheckWin() {
         if (k1 == "X") {
             ShowWinner("X");
             return "X";
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
             return "O";
         }
     }
@@ -141,8 +153,10 @@ function CheckWin() {
         if (k2 == "X") {
             ShowWinner("X");
             return "X";
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
             return "O";
         }
     }
@@ -150,8 +164,10 @@ function CheckWin() {
         if (k3 == "X") {
             ShowWinner("X");
             return "X";
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
             return "O";
         }
     }
@@ -162,8 +178,10 @@ function CheckWin() {
         if (k1 == "X") {
             ShowWinner("X");
             return "X";
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
             return "O";
         }
     }
@@ -171,8 +189,10 @@ function CheckWin() {
         if (k7 == "X") {
             ShowWinner("X");
             return "X";
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
             return "O";
         }
     }
@@ -302,11 +322,21 @@ function NewGame() {
     CurrentSymbol = "X";
     Updatesymbol();
     DissbleButton("mehet")
+    DissbleButton("mehet")
 }
 
 window.onload = function() {
     var square = document.getElementById("jatekter");
     var width = square.offsetWidth;
+    var height = square.offsetHeight;
+    if (width < 800 && height < 800) {
+        if (width < height) {
+            square.style.height = width + "px";
+        }
+        else {
+            square.style.width = height + "px";
+        }
+    }
     var height = square.offsetHeight;
     if (width < 800 && height < 800) {
         if (width < height) {
