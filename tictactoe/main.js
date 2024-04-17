@@ -14,7 +14,11 @@ function AddSymbol() {
             button.innerText = "X";
             CurrentSymbol = "O";
             click++;
+            if (click <= 9) {
+                DissbleButton("tiltas")
+            }
             Updatesymbol();
+            BotPlace();
         } else if (CurrentSymbol == "O"){
             button.innerText = "O";
             CurrentSymbol = "X";
@@ -97,22 +101,28 @@ function CheckWin() {
     if (k1 == "X" && k2 == "X" && k3 == "X" || k1 == "O" && k2 == "O" && k3 == "O") {
         if (k1 == "X") {
             ShowWinner("X");
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
         }
     }
     else if (k4 == "X" && k5 == "X" && k6 == "X" || k4 == "O" && k5 == "O" && k6 == "O") {
         if (k4 == "X") {
             ShowWinner("X");
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
         }
     }
     else if (k7 == "X" && k8 == "X" && k9 == "X" || k7 == "O" && k8 == "O" && k9 == "O") {
         if (k7 == "X") {
             ShowWinner("X");
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
         }
     }
 
@@ -121,22 +131,28 @@ function CheckWin() {
     else if (k1 == "X" && k4 == "X" && k7 == "X" || k1 == "O" && k4 == "O" && k7 == "O") {
         if (k1 == "X") {
             ShowWinner("X");
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
         }
     }
     else if (k2 == "X" && k5 == "X" && k8 == "X" || k2 == "O" && k5 == "O" && k8 == "O") {
         if (k2 == "X") {
             ShowWinner("X");
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
         }
     }
     else if (k3 == "X" && k6 == "X" && k9 == "X" || k3 == "O" && k6 == "O" && k9 == "O") {
         if (k3 == "X") {
             ShowWinner("X");
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
         }
     }
 
@@ -145,21 +161,131 @@ function CheckWin() {
     else if (k1 == "X" && k5 == "X" && k9 == "X" || k1 == "O" && k5 == "O" && k9 == "O") {
         if (k1 == "X") {
             ShowWinner("X");
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
         }
     }
     else if (k7 == "X" && k5 == "X" && k3 == "X" || k7 == "O" && k5 == "O" && k3 == "O") {
         if (k7 == "X") {
             ShowWinner("X");
+            return "X";
         } else {
             ShowWinner("O");
+            return "O";
         }
     }
     else if (click >= 9){
         ShowWinner("draw");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+function BotPlace() {
+    CheckWin()
+    var bestScore = -Infinity;
+    var move;
+    var alpha = -Infinity;
+    var beta = Infinity;
+    
+    // Loop through all empty cells
+    for (var i = 1; i <= 9; i++) {
+        var cell = document.getElementById(i);
+        
+        // Check if the cell is empty
+        if (cell.innerText == "") {
+            // Make the move
+            cell.innerText = "O";
+            var score = minimax(false, 0, alpha, beta);
+            // Undo the move
+            cell.innerText = "";
+            
+            // Choose the move with the highest score
+            if (score > bestScore) {
+                bestScore = score;
+                move = cell;
+            }
+        }
+    }
+    
+    // Make the best move
+    move.innerText = "O";
+    move.classList.add('clicked');
+    CurrentSymbol = "X";
+    click++;
+    DissbleButton("mehet")
+    Updatesymbol();
+}
+
+function minimax(isMaximizing, depth, alpha, beta) {
+    // Check for terminal states (win, lose, draw)
+    var result = CheckWin();
+    if (result !== null) {
+        if (result === "X") {
+            return -10 + depth;
+        } else if (result === "O") {
+            return 10 - depth;
+        } else {
+            return 0;
+        }
+    }
+    
+    if (isMaximizing) {
+        var bestScore = -Infinity;
+        for (var i = 1; i <= 9; i++) {
+            var cell = document.getElementById(i);
+            if (cell.innerText == "") {
+                cell.innerText = "O";
+                var score = minimax(false, depth + 1, alpha, beta);
+                cell.innerText = "";
+                bestScore = Math.max(score, bestScore);
+                alpha = Math.max(alpha, score);
+                if (beta <= alpha) {
+                    break;
+                }
+            }
+        }
+        return bestScore;
+    } else {
+        var bestScore = Infinity;
+        for (var i = 1; i <= 9; i++) {
+            var cell = document.getElementById(i);
+            if (cell.innerText == "") {
+                cell.innerText = "X";
+                var score = minimax(true, depth + 1, alpha, beta);
+                cell.innerText = "";
+                bestScore = Math.min(score, bestScore);
+                beta = Math.min(beta, score);
+                if (beta <= alpha) {
+                    break;
+                }
+            }
+        }
+        return bestScore;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function NewGame() {
@@ -175,10 +301,19 @@ function NewGame() {
     click = 0;
     CurrentSymbol = "X";
     Updatesymbol();
+    DissbleButton("mehet")
 }
 
 window.onload = function() {
     var square = document.getElementById("jatekter");
     var width = square.offsetWidth;
-    square.style.height = width + "px";
+    var height = square.offsetHeight;
+    if (width < 800 && height < 800) {
+        if (width < height) {
+            square.style.height = width + "px";
+        }
+        else {
+            square.style.width = height + "px";
+        }
+    }
 };
